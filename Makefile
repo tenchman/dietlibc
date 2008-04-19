@@ -536,3 +536,10 @@ $(OBJDIR)/stackgap.o: dietfeatures.h
 
 # WANT_MALLOC_ZERO
 $(OBJDIR)/strndup.o: dietfeatures.h
+
+
+GIT_CVSIMPORT=git cvsimport
+CVS_EXTRA_bigo.ensc.de=;proxy=www-cache;proxyport=3128
+CVS_EXTRA=$(CVS_EXTRA_$(shell hostname -d))
+cvsimport:
+	$(GIT_CVSIMPORT) -k -p '--cvs-direct' -d ':pserver$(CVS_EXTRA):cvs@cvs.fefe.de:/cvs' dietlibc
